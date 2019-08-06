@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/EnumDescription/.vs/EnumDescription
+/EnumDescription/bin/Debug/netcoreapp2.2
+/EnumDescription/obj
+/EnumDescriptionTests/bin/Debug/netcoreapp2.2
+/EnumDescriptionTests/obj
