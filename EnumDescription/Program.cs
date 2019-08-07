@@ -20,14 +20,18 @@ namespace EnumDescription
                 var type = ((EmployeeType) typeValue);
 
                 // Initial execution
-                type.GetEnumDescriptionWithoutGenerics();
-                type.GetEnumDescriptionWithGenerics();
+                ((Enum)type).GetDescription();
+
+                type.GetDescription();
 
                 // Comparing two methods
                 Thread.Sleep(10);
-                Executor(() => type.GetEnumDescriptionWithoutGenerics(), false);
+
+                Executor(() => ((Enum) type).GetDescription(), false);
+
                 Thread.Sleep(10);
-                Executor(() => type.GetEnumDescriptionWithGenerics(), true);
+
+                Executor(() => type.GetDescription(), true);
                
             }
         }
@@ -35,8 +39,11 @@ namespace EnumDescription
         private static void Executor(Action executeMethod, bool withGeneric)
         {
             var timer = Stopwatch.StartNew();
+
             executeMethod();
+
             timer.Stop();
+
             Console.WriteLine(
                 $"{(withGeneric ? Constants.TimerRecordWithGenericLabel : Constants.TimerRecordWithoutGenericLabel)}: {timer.Elapsed}");
         }

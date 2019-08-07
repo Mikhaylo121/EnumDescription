@@ -1,3 +1,4 @@
+using System;
 using EnumDescription;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +12,7 @@ namespace EnumDescriptionTests
         [TestMethod]
         public void GetEnumDescriptionWithoutGenericTest()
         {
-            string actual = EmployeeType.FullTime.GetEnumDescriptionWithoutGenerics();
+            string actual = ((Enum) EmployeeType.FullTime).GetDescription();
 
             Assert.AreEqual(Expected, actual);
         }
@@ -20,7 +21,7 @@ namespace EnumDescriptionTests
         public void GetEnumDescriptionWithGenericTest()
         {
 
-            string actual = EmployeeType.FullTime.GetEnumDescriptionWithGenerics();
+            string actual = EmployeeType.FullTime.GetDescription();
 
             Assert.AreEqual(Expected, actual);
         }
